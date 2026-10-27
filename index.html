@@ -6,37 +6,29 @@
     <meta name="theme-color" content="#f7faf5" />
     <meta
       name="description"
-      content="An interactive, unofficial learning concept: practice responsible AI decisions through branching scenarios, feedback, and XP."
+      content="A short, unofficial AI ethics game. Make decisions about AI at school or work and see what happens next."
     />
-    <title>AI Ethics Quest · Interactive Learning Concept</title>
+    <title>AI Ethics Quest · Practice with real scenarios</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=3" />
+    <script src="app.js?v=3" defer></script>
   </head>
   <body>
-    <!-- Masks the baked-in checkerboard of the supplied cheering mascot image. -->
-    <svg class="duo-svg-filters" aria-hidden="true" focusable="false" width="0" height="0">
-      <defs>
-        <filter id="duo-remove-checker" color-interpolation-filters="sRGB">
-          <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 -1.25 0 1" />
-        </filter>
-      </defs>
-    </svg>
     <a class="skip-link" href="#main">Skip to challenge</a>
 
     <header class="topbar">
       <div class="topbar-inner">
         <a class="brand" href="./" aria-label="AI Ethics Quest home">
           <img class="brand-duo" src="assets/duo-closeup.png" alt="" width="40" height="40" />
-          <span>AI <strong>ETHICS</strong> QUEST</span>
+          <span>AI <strong>Ethics</strong> Quest</span>
         </a>
         <div class="header-actions">
-          <span class="concept-pill"><span class="pulse-dot"></span> Interactive concept</span>
+          <span class="concept-pill"><span class="pulse-dot"></span> Demo game</span>
           <div class="stat-pill" title="XP earned in the current session"><span aria-hidden="true">⚡</span> <strong id="header-xp">0</strong><span>XP</span></div>
           <div class="stat-pill stat-pill-streak" title="Consecutive strong decisions in this session"><span aria-hidden="true">🔥</span> <strong id="header-streak">0</strong><span>streak</span></div>
         </div>
@@ -46,9 +38,9 @@
     <div class="page-shell">
       <aside class="sidebar" aria-label="Learning journey">
         <div class="sidebar-header">
-          <div class="eyebrow">YOUR JOURNEY</div>
-          <h2>Practice makes<br /><em>progress.</em></h2>
-          <p>Three real-world missions. One better way to use AI.</p>
+          <div class="eyebrow">Your progress</div>
+          <h2>Let's see what<br /><em>you'd do.</em></h2>
+          <p>Work through three short stories about everyday AI use.</p>
         </div>
 
         <div class="journey-card">
@@ -61,16 +53,16 @@
         </div>
 
         <div class="sidebar-note">
-          <img class="sidebar-duo" src="assets/duo-welcome.png" alt="" width="42" height="42" />
+          <img class="sidebar-duo" src="assets/duo-welcome-clean.png" alt="" width="42" height="42" />
           <div>
-            <strong>Think before you click.</strong>
-            <p>You'll earn more XP for well-reasoned choices, not faster answers.</p>
+            <strong>No rush.</strong>
+            <p>Take your time. You'll see feedback after each choice.</p>
           </div>
         </div>
 
         <div class="sidebar-bottom">
-          <div class="small-label">YOUR PERSONAL BEST</div>
-          <div class="best-record"><span id="sidebar-best">—</span><small>/ 450 XP</small></div>
+          <div class="small-label">Your best score</div>
+          <div class="best-record"><span id="sidebar-best">0</span><small>/ 450 XP</small></div>
           <button class="text-button" id="reset-progress" type="button">Reset saved progress</button>
         </div>
       </aside>
@@ -81,8 +73,8 @@
     </div>
 
     <footer class="site-footer">
-      <span>Designed for responsible AI decision-making</span>
-      <span>Student-created concept · Not an official Duolingo product or UNESCO certification</span>
+      <span>AI Ethics Quest, a student project</span>
+      <span>Inspired by Duolingo. This is an unofficial demo, not a certification.</span>
     </footer>
   </body>
 </html>
