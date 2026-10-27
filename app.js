@@ -396,10 +396,17 @@ function renderIntro() {
           <button class="btn-primary" type="button" data-action="start">${session.started ? "↻ Start new quest" : "Start your quest"} <span aria-hidden="true">→</span></button>
           ${session.started ? `<button class="btn-secondary" type="button" data-action="resume">Resume progress ↗</button>` : ""}
         </div>
+        <div class="inspiration-line" aria-label="Design inspiration, not an official partnership">
+          <span>Gamified learning inspired by</span>
+          <span class="brand-logo-crop"><img src="assets/duolingo-green-logo.png" alt="Duolingo" width="126" height="126" /></span>
+          <span class="unofficial-label">· Unofficial concept</span>
+        </div>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="art-orbit"></div><div class="floating-icon one">🧠</div><div class="floating-icon two">🛡️</div>
-        <div class="chat-card"><div class="chat-card-top"><span class="chat-avatar">✦</span><span>AI assistant</span><span style="margin-left:auto;color:#9baa9b;font-size:17px">•••</span></div><div class="chat-line"></div><div class="chat-line mid"></div><div class="chat-line short"></div><div class="chat-question">⚠️ &nbsp; Can you spot the risk?</div></div>
+        <div class="hero-mascot-speech">Ready to think critically?</div>
+        <img class="hero-duo duo-float" src="assets/duo-welcome.png" alt="" width="256" height="256" />
+        <div class="chat-question floating-prompt">⚠️ &nbsp; Can you spot the risk?</div>
         <div class="floating-xp">⚡ +75 XP</div>
       </div>
     </section>
@@ -433,6 +440,7 @@ function renderQuestion() {
     <div class="progress-wrap" role="progressbar" aria-label="Quest progress" aria-valuemin="0" aria-valuemax="6" aria-valuenow="${questionNumber - 1}"><div class="progress-fill" style="width:${((questionNumber - 1) / (scenarios.length * DECISIONS_PER_LEVEL)) * 100}%"></div></div>
     <section class="question-card" aria-labelledby="question-heading">
       <div class="question-topline"><span class="mini-label">DECISION ${questionNumber} OF ${scenarios.length * DECISIONS_PER_LEVEL} · ${isFollowup ? "FOLLOW-UP" : "REAL-WORLD SCENARIO"}</span><span class="difficulty">${scenario.difficulty} LEVEL</span></div>
+      <div class="coach-tip"><img class="coach-duo duo-peek" src="assets/duo-closeup.png" alt="" width="47" height="47" /><div><strong>PAUSE & THINK</strong><span>${isFollowup ? "Your first choice changed the story. What should happen next?" : "Spot the AI risk before you pick a response."}</span></div></div>
       <h1 class="question-title" id="question-heading">${isFollowup ? "The story continues..." : context.title}</h1>
       <p class="question-description">${isFollowup ? "Your next choice depends on the decision you just made. Think about consequences, not just rewards." : context.description}</p>
       <div class="simulation-card"><span class="simulation-avatar" aria-hidden="true">${isFollowup ? "💬" : "✦"}</span><div><div class="sim-title">${isFollowup ? "A new development" : "The AI / Team's message"}</div><p>${isFollowup ? question.aiOutput : context.aiOutput}</p></div></div>
@@ -451,6 +459,8 @@ function renderFeedback() {
   const headings = { strong: "Great judgment!", partial: "You're on the right track.", risky: "Let's rethink that." };
   const captions = { strong: "You spotted the important ethical trade-off.", partial: "A good start, with room to strengthen your decision.", risky: "A risky choice is a chance to learn." };
   const icons = { strong: "🌟", partial: "💭", risky: "🧭" };
+  const duoPhotos = { strong: "duo-cheering.png", partial: "duo-welcome.png", risky: "duo-closeup.png" };
+  const duoMessages = { strong: "Amazing call!", partial: "Keep thinking!", risky: "Let's try again!" };
   const isLastStep = session.stepIndex === DECISIONS_PER_LEVEL - 1;
   const isLastLevel = session.levelIndex === scenarios.length - 1;
   const buttonText = isLastStep ? (isLastLevel ? "See my results" : "Next mission") : "Continue the story";
@@ -459,6 +469,7 @@ function renderFeedback() {
     <div class="progress-wrap" role="progressbar" aria-label="Quest progress" aria-valuemin="0" aria-valuemax="6" aria-valuenow="${session.answers.length}"><div class="progress-fill" style="width:${(session.answers.length / (scenarios.length * DECISIONS_PER_LEVEL)) * 100}%"></div></div>
     <section class="question-card" aria-labelledby="feedback-heading">
       <div class="feedback-top"><div class="feedback-status"><span class="feedback-emblem ${quality}">${icons[quality]}</span><div><h2 id="feedback-heading">${headings[quality]}</h2><p>${captions[quality]}</p></div></div><div class="xp-reward">⚡ +${option.xp} XP</div></div>
+      <div class="feedback-mascot-row"><div class="feedback-mascot ${quality}"><img src="assets/${duoPhotos[quality]}" class="${quality === "strong" ? "duo-celebrate duo-cut-background" : "duo-peek"}" alt="Duo mascot reacting to your decision" width="104" height="104" /></div><div class="mascot-bubble"><strong>${duoMessages[quality]}</strong><span>${quality === "strong" ? "The responsible choice can be rewarding." : quality === "partial" ? "Reflect on what you could improve." : "A mistake is a chance to learn. Review the consequence below."}</span></div></div>
       <div class="feedback-answer">YOUR DECISION</div><div class="feedback-chosen">“${option.text}”</div>
       <div class="feedback-explain"><div class="feedback-box"><h3>💡 Why it matters</h3><p>${option.rationale}</p></div><div class="feedback-box consequence"><h3>🔍 Possible consequence</h3><p>${option.consequence}</p></div></div>
       <div class="feedback-actions"><span>${isLastStep ? "Mission complete — ready for the next one?" : "Your decision shapes what happens next."}</span><button class="btn-primary" data-action="continue" type="button">${buttonText} <span aria-hidden="true">→</span></button></div>
@@ -491,8 +502,9 @@ function renderResults() {
     "Thoughtful Learner": "You've built a promising foundation. Revisit the challenges where a small oversight changed the outcome.",
     "Curious Explorer": "You've taken an important first step. Replay the challenges and focus on the explanations behind each decision.",
   };
+  const celebrationPhoto = score >= 80 ? "duo-cheering.png" : score >= 55 ? "duo-welcome.png" : "duo-closeup.png";
   app.innerHTML = `<div class="app-stage">
-    <section class="result-hero" aria-labelledby="results-heading"><div class="result-icon">🏆</div><div class="eyebrow">ALL MISSIONS COMPLETED</div><h1 id="results-heading">${tier}</h1><p>${messages[tier]}</p>
+    <section class="result-hero" aria-labelledby="results-heading"><div class="result-duo-wrap"><span class="result-sparkle" aria-hidden="true">✦</span><img src="assets/${celebrationPhoto}" class="result-duo ${score >= 80 ? "duo-celebrate duo-cut-background" : "duo-float"}" alt="Duo mascot celebrating the completed practice" width="112" height="112"/><span class="result-sparkle" aria-hidden="true">✦</span></div><div class="eyebrow">ALL MISSIONS COMPLETED · 🏆</div><h1 id="results-heading">${tier}</h1><p>${messages[tier]}</p>
       <div class="result-metrics"><div class="result-metric"><div class="metric-number">${session.totalXp}</div><div class="metric-label">XP earned / ${maxXp()}</div></div><div class="result-metric"><div class="metric-number">${score}%</div><div class="metric-label">Practice score</div></div><div class="result-metric"><div class="metric-number">${session.bestDecisionStreak}</div><div class="metric-label">Best decision streak</div></div></div>
     </section>
     <section class="results-panel"><h2>Competency snapshot</h2><p>How well did you apply ethical AI judgment in each simulated context?</p>

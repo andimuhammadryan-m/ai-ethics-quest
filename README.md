@@ -15,6 +15,8 @@ An interactive **unofficial student concept** designed to demonstrate Duolingo-i
 - Campus and Workplace contexts (switchable before starting a quest).
 - Browser-only saved progress using `localStorage`, with a Reset button.
 - Responsive design for mobile and desktop, keyboard shortcuts (`1`, `2`, `3`).
+- Duo mascot expressions and subtle animations (welcome, thinking, cheering) using the student-provided artwork.
+- Supplied Duolingo visual reference image and a clear independent-prototype disclaimer.
 
 ## Technologies
 
@@ -24,17 +26,20 @@ An interactive **unofficial student concept** designed to demonstrate Duolingo-i
 | `styles.css` | All styling, animations, and responsive layout. |
 | `app.js` | Scenarios, branching logic, scoring, XP, state persistence, and results. |
 | `README.md` | This setup guide. |
+| `assets/` | Six supplied mascot and logo images, used by the UI or kept as optional visual variants. |
+
+**Files inside `assets/`:** `duo-welcome.png`, `duo-cheering.png`, `duo-closeup.png`, `duolingo-green-logo.png`, `duolingo-white-logo.png`, and `duolingo-cheering-logo.png`. The UI uses the mascot expressions and the green wordmark reference; the other wordmarks are included as optional alternatives and are not added everywhere to avoid clutter. The artwork belongs to Duolingo; possession of the image files is not an endorsement or license from Duolingo.
 
 **External services:** Google Fonts is used for optional typography. If it cannot load, system fonts are used instead. The app itself requires no external APIs or JavaScript libraries.
 
 ## Try it on your computer
 
 1. Extract the downloaded ZIP file.
-2. Open the folder created by extracting the ZIP (it contains four files).
+2. Open the folder created by extracting the ZIP (it contains the HTML, CSS, JS, README, Indonesian update guide, and an `assets` subfolder).
 3. Double-click `index.html`. It should open in Chrome, Edge, or another browser.
 4. Select **Campus** or **Workplace**, then click **Start your quest**.
 
-Do not separate `index.html`, `styles.css`, and `app.js`; they must be in the same folder.
+Do not separate `index.html`, `styles.css`, and `app.js`; they must be in the same folder. Keep the `assets` directory alongside these files.
 
 ## Publish it using GitHub Pages — beginner instructions
 
@@ -57,16 +62,18 @@ Do not separate `index.html`, `styles.css`, and `app.js`; they must be in the sa
 
 1. On the new repository page, click **uploading an existing file**. If the repository already has content, choose **Add file → Upload files** instead.
 2. Open your extracted `ai-ethics-challenge` folder on your laptop.
-3. Select these **four files**, not the outer folder:
+3. Select these **five files**, plus the **`assets` folder**, not the outer folder:
    - `index.html`
    - `styles.css`
    - `app.js`
    - `README.md`
+   - `PANDUAN_UPDATE_GITHUB.md`
+   - `assets/` (contains the six PNG files)
 4. Drag them into the GitHub upload box, or use **choose your files**.
 5. Wait for all files to appear in the upload list.
 6. Scroll down, enter a message like `Add interactive AI Ethics Quest prototype`, and click **Commit changes**.
 
-**Check:** The files must be shown directly at the top of your repository. The file `index.html` must not be buried in another folder.
+**Check:** The five files must be shown directly at the top of your repository, with a separate `assets` folder. `index.html` must not be buried in another folder.
 
 ### 4. Turn on GitHub Pages
 
@@ -86,7 +93,7 @@ Replace `YOUR-GITHUB-USERNAME` with your actual GitHub username. The link above 
 ### 5. Test before putting the link in PowerPoint
 
 1. Open your GitHub Pages link in a new tab.
-2. Refresh once and check that the design loads (green hero, sidebar, three missions).
+2. Refresh once and check that the design loads (green hero, moving Duo character, sidebar, three missions).
 3. Try one full quest and verify that all three levels work.
 4. Test both **Campus** and **Workplace** settings.
 5. Refresh during a quest and check that progress is saved.
@@ -113,12 +120,30 @@ Replace `YOUR-GITHUB-USERNAME` with your actual GitHub username. The link above 
 
 For larger multi-file changes, you can upload your updated project files again to the repository root and commit them.
 
+### Updating the previous version to this new mascot version
+
+If you uploaded an earlier **AI Ethics Quest** version, **keep your existing repository**. You do **not** need to recreate it or re-enable GitHub Pages.
+
+1. Unzip this new version, then open the extracted project folder.
+2. Open your existing GitHub repository (`ai-ethics-quest`) and make sure you are viewing the repository root (the page with `index.html`).
+3. Click **Add file → Upload files**.
+4. Drag these four updated files, `PANDUAN_UPDATE_GITHUB.md`, **and the entire `assets` folder** into the upload area: `index.html`, `styles.css`, `app.js`, `README.md`, `PANDUAN_UPDATE_GITHUB.md`, and `assets/`. GitHub supports dragging folders into this upload UI.
+5. Review the file list. Existing files with the same paths should be marked as changes; `assets/...` are new files. Write a commit message such as `Add Duo mascot animations and branded illustrations`, then click **Commit changes** (or the equivalent commit button shown by GitHub).
+6. Return to the repository's **Code** tab. You should see the five project files and the `assets` folder. Click `assets` and confirm that all six `.png` images are there.
+7. **Settings → Pages** should still use `main` and `/ (root)` from your earlier setup. Do not change this if it already worked.
+8. Wait for GitHub Pages to update, and refresh your original site URL. Use **Ctrl + F5** if you see the previous version.
+
+**Avoid the most common mistake:** never place the full extracted outer folder inside the repository. The correct path is `assets/duo-cheering.png`, not `ai-ethics-challenge/assets/duo-cheering.png`.
+
+There is also a dedicated guide in Bahasa Indonesia in `PANDUAN_UPDATE_GITHUB.md`.
+
 ## Common problems
 
 | Problem | Likely cause / solution |
 | --- | --- |
 | `404 Not Found` | Check Settings → Pages is set to `main` + `/ (root)`; ensure `index.html` is in the repository root and deployment finished. |
 | Page opens without styling | `styles.css` is missing, renamed, or not in the same directory as `index.html`. |
+| Duo pictures are missing | The whole `assets` folder is missing, image filenames are different, or `assets` was uploaded under an extra folder. |
 | Buttons don't work | `app.js` is missing or in the wrong directory. Check the browser's developer console for errors. |
 | Website only works when logged in | Make sure you copied the **GitHub Pages** link, not the repository or editing-preview URL. |
 | Old changes still visible | Wait for deployment, then hard-refresh (`Ctrl + F5`). |
@@ -130,6 +155,7 @@ For larger multi-file changes, you can upload your updated project files again t
 - Change scoring by editing each option's `xp` value, but note that the current feedback tiers assume 75 / 40 / 10 XP.
 - Change colors or spacing in `styles.css`.
 - Change app title and labels in `index.html`.
+- Change which Duo image is used by editing the `<img src="assets/...">` references in `index.html` and `app.js`. Keep filenames and paths exact.
 
 ## Design & evaluation considerations
 
@@ -137,6 +163,7 @@ For larger multi-file changes, you can upload your updated project files again t
 - Feedback is educational and simplified; expert review would be required before any formal university or corporate use.
 - XP is used for engagement, not as a substitute for proven behavior change.
 - The current prototype intentionally avoids a live generative AI model. That means it produces controlled, repeatable feedback without API charges or uncertain outputs.
+- Use Duolingo branding only for the contest concept/prototype within the permissions appropriate to your presentation. This project is not affiliated with, sponsored by, or endorsed by Duolingo. Refer to their [official brand guidelines](https://design.duolingo.com/identity/logos) before public distribution.
 
 ## Official hosting documentation
 

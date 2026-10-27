@@ -19,12 +19,20 @@
     <script src="app.js" defer></script>
   </head>
   <body>
+    <!-- Masks the baked-in checkerboard of the supplied cheering mascot image. -->
+    <svg class="duo-svg-filters" aria-hidden="true" focusable="false" width="0" height="0">
+      <defs>
+        <filter id="duo-remove-checker" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 -1.25 0 1" />
+        </filter>
+      </defs>
+    </svg>
     <a class="skip-link" href="#main">Skip to challenge</a>
 
     <header class="topbar">
       <div class="topbar-inner">
         <a class="brand" href="./" aria-label="AI Ethics Quest home">
-          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <img class="brand-duo" src="assets/duo-closeup.png" alt="" width="40" height="40" />
           <span>AI <strong>ETHICS</strong> QUEST</span>
         </a>
         <div class="header-actions">
@@ -53,7 +61,7 @@
         </div>
 
         <div class="sidebar-note">
-          <span class="sidebar-note-icon" aria-hidden="true">✦</span>
+          <img class="sidebar-duo" src="assets/duo-welcome.png" alt="" width="42" height="42" />
           <div>
             <strong>Think before you click.</strong>
             <p>You'll earn more XP for well-reasoned choices, not faster answers.</p>
