@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7faf5" />
+    <meta
+      name="description"
+      content="An interactive, unofficial learning concept: practice responsible AI decisions through branching scenarios, feedback, and XP."
+    />
+    <title>AI Ethics Quest · Interactive Learning Concept</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to challenge</a>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="./" aria-label="AI Ethics Quest home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span>AI <strong>ETHICS</strong> QUEST</span>
+        </a>
+        <div class="header-actions">
+          <span class="concept-pill"><span class="pulse-dot"></span> Interactive concept</span>
+          <div class="stat-pill" title="XP earned in the current session"><span aria-hidden="true">⚡</span> <strong id="header-xp">0</strong><span>XP</span></div>
+          <div class="stat-pill stat-pill-streak" title="Consecutive strong decisions in this session"><span aria-hidden="true">🔥</span> <strong id="header-streak">0</strong><span>streak</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-shell">
+      <aside class="sidebar" aria-label="Learning journey">
+        <div class="sidebar-header">
+          <div class="eyebrow">YOUR JOURNEY</div>
+          <h2>Practice makes<br /><em>progress.</em></h2>
+          <p>Three real-world missions. One better way to use AI.</p>
+        </div>
+
+        <div class="journey-card">
+          <div class="journey-heading"><span>Learning path</span><strong id="journey-count">0 / 3</strong></div>
+          <div class="journey-track" id="journey-track">
+            <div class="journey-row"><span class="journey-icon active">01</span><span>Information Integrity</span></div>
+            <div class="journey-row"><span class="journey-icon">02</span><span>Data Privacy</span></div>
+            <div class="journey-row"><span class="journey-icon">03</span><span>Bias & Fairness</span></div>
+          </div>
+        </div>
+
+        <div class="sidebar-note">
+          <span class="sidebar-note-icon" aria-hidden="true">✦</span>
+          <div>
+            <strong>Think before you click.</strong>
+            <p>You'll earn more XP for well-reasoned choices, not faster answers.</p>
+          </div>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="small-label">YOUR PERSONAL BEST</div>
+          <div class="best-record"><span id="sidebar-best">—</span><small>/ 450 XP</small></div>
+          <button class="text-button" id="reset-progress" type="button">Reset saved progress</button>
+        </div>
+      </aside>
+
+      <main id="main" class="main-content" tabindex="-1">
+        <div id="app" aria-live="polite"></div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <span>Designed for responsible AI decision-making</span>
+      <span>Student-created concept · Not an official Duolingo product or UNESCO certification</span>
+    </footer>
+  </body>
+</html>
