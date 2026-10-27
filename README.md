@@ -1,4 +1,4 @@
-# AI Ethics Quest — Interactive GitHub Pages Prototype
+# AI Ethics Quest: GitHub Pages demo
 
 An interactive **unofficial student concept** designed to demonstrate Duolingo-inspired practice mechanics for ethical AI literacy. Built with plain HTML, CSS, and JavaScript. No installation, login, backend, database, or API key is required.
 
@@ -6,7 +6,7 @@ An interactive **unofficial student concept** designed to demonstrate Duolingo-i
 
 ## What's included?
 
-- Three playable levels: **Information Integrity**, **Data Privacy**, and **Bias & Fairness**.
+- Three playable levels: **Checking AI answers**, **Keeping data private**, and **Spotting unfair decisions**.
 - Two decisions in each level. Your first response changes the follow-up story.
 - Custom feedback and consequences after each decision.
 - XP points: 75 for a strong choice, 40 for a partially responsible choice, and 10 for a risky choice.
@@ -15,8 +15,8 @@ An interactive **unofficial student concept** designed to demonstrate Duolingo-i
 - Campus and Workplace contexts (switchable before starting a quest).
 - Browser-only saved progress using `localStorage`, with a Reset button.
 - Responsive design for mobile and desktop, keyboard shortcuts (`1`, `2`, `3`).
-- Duo mascot expressions and subtle animations (welcome, thinking, cheering) using the student-provided artwork.
-- Supplied Duolingo visual reference image and a clear independent-prototype disclaimer.
+- Duo mascot illustrations with genuine transparent backgrounds and light animations.
+- Clear independent-prototype disclaimer.
 
 ## Technologies
 
@@ -26,9 +26,9 @@ An interactive **unofficial student concept** designed to demonstrate Duolingo-i
 | `styles.css` | All styling, animations, and responsive layout. |
 | `app.js` | Scenarios, branching logic, scoring, XP, state persistence, and results. |
 | `README.md` | This setup guide. |
-| `assets/` | Six supplied mascot and logo images, used by the UI or kept as optional visual variants. |
+| `assets/` | Two clean transparent PNGs used in the UI, plus the original supplied image files. |
 
-**Files inside `assets/`:** `duo-welcome.png`, `duo-cheering.png`, `duo-closeup.png`, `duolingo-green-logo.png`, `duolingo-white-logo.png`, and `duolingo-cheering-logo.png`. The UI uses the mascot expressions and the green wordmark reference; the other wordmarks are included as optional alternatives and are not added everywhere to avoid clutter. The artwork belongs to Duolingo; possession of the image files is not an endorsement or license from Duolingo.
+**Images used in this version:** `duo-welcome-clean.png` and `duo-cheering-clean.png`, which have real transparent backgrounds. The header still uses `duo-closeup.png` as a small square icon. Other original files remain in `assets/` as references. The artwork belongs to Duolingo; this demo is not endorsed by Duolingo.
 
 **External services:** Google Fonts is used for optional typography. If it cannot load, system fonts are used instead. The app itself requires no external APIs or JavaScript libraries.
 
@@ -37,7 +37,7 @@ An interactive **unofficial student concept** designed to demonstrate Duolingo-i
 1. Extract the downloaded ZIP file.
 2. Open the folder created by extracting the ZIP (it contains the HTML, CSS, JS, README, Indonesian update guide, and an `assets` subfolder).
 3. Double-click `index.html`. It should open in Chrome, Edge, or another browser.
-4. Select **Campus** or **Workplace**, then click **Start your quest**.
+4. Select **Campus** or **Workplace**, then click **Let's play**.
 
 Do not separate `index.html`, `styles.css`, and `app.js`; they must be in the same folder. Keep the `assets` directory alongside these files.
 
@@ -62,16 +62,15 @@ Do not separate `index.html`, `styles.css`, and `app.js`; they must be in the sa
 
 1. On the new repository page, click **uploading an existing file**. If the repository already has content, choose **Add file → Upload files** instead.
 2. Open your extracted `ai-ethics-challenge` folder on your laptop.
-3. Select these **five files**, plus the **`assets` folder**, not the outer folder:
+3. Select these **five files** from the extracted project folder:
    - `index.html`
    - `styles.css`
    - `app.js`
    - `README.md`
    - `PANDUAN_UPDATE_GITHUB.md`
-   - `assets/` (contains the six PNG files)
-4. Drag them into the GitHub upload box, or use **choose your files**.
-5. Wait for all files to appear in the upload list.
-6. Scroll down, enter a message like `Add interactive AI Ethics Quest prototype`, and click **Commit changes**.
+4. Upload the five files and commit. Create the `assets` folder on GitHub if needed by using **Add file → Create new file** and entering `assets/README.md` as the filename. Paste `Image files for the AI Ethics Quest demo.` and commit.
+5. Open the `assets` folder on GitHub, choose **Add file → Upload files**, select the eight PNG files from your laptop, then commit. Uploading the image files individually works even if your browser refuses to upload a folder.
+6. Check that all PNG files appear in `assets/`, then verify `index.html` is still at the repository root.
 
 **Check:** The five files must be shown directly at the top of your repository, with a separate `assets` folder. `index.html` must not be buried in another folder.
 
@@ -93,7 +92,7 @@ Replace `YOUR-GITHUB-USERNAME` with your actual GitHub username. The link above 
 ### 5. Test before putting the link in PowerPoint
 
 1. Open your GitHub Pages link in a new tab.
-2. Refresh once and check that the design loads (green hero, moving Duo character, sidebar, three missions).
+2. Refresh once and check that the design loads with Duo showing no white square or checkerboard around it.
 3. Try one full quest and verify that all three levels work.
 4. Test both **Campus** and **Workplace** settings.
 5. Refresh during a quest and check that progress is saved.
@@ -120,20 +119,20 @@ Replace `YOUR-GITHUB-USERNAME` with your actual GitHub username. The link above 
 
 For larger multi-file changes, you can upload your updated project files again to the repository root and commit them.
 
-### Updating the previous version to this new mascot version
+### Updating an older version to the clean UI
 
 If you uploaded an earlier **AI Ethics Quest** version, **keep your existing repository**. You do **not** need to recreate it or re-enable GitHub Pages.
 
 1. Unzip this new version, then open the extracted project folder.
 2. Open your existing GitHub repository (`ai-ethics-quest`) and make sure you are viewing the repository root (the page with `index.html`).
-3. Click **Add file → Upload files**.
-4. Drag these four updated files, `PANDUAN_UPDATE_GITHUB.md`, **and the entire `assets` folder** into the upload area: `index.html`, `styles.css`, `app.js`, `README.md`, `PANDUAN_UPDATE_GITHUB.md`, and `assets/`. GitHub supports dragging folders into this upload UI.
-5. Review the file list. Existing files with the same paths should be marked as changes; `assets/...` are new files. Write a commit message such as `Add Duo mascot animations and branded illustrations`, then click **Commit changes** (or the equivalent commit button shown by GitHub).
-6. Return to the repository's **Code** tab. You should see the five project files and the `assets` folder. Click `assets` and confirm that all six `.png` images are there.
+3. Update `index.html`, `styles.css` and `app.js` by opening each file on GitHub, clicking the pencil icon, replacing all the old text with the version from the ZIP, and clicking **Commit changes**. You can also upload the three files together using **Add file → Upload files** if GitHub lets you replace them.
+4. Open the existing `assets` folder on GitHub. Choose **Add file → Upload files**. Select only `duo-welcome-clean.png` and `duo-cheering-clean.png` from the extracted `assets` folder on your laptop. Click **Commit changes**.
+5. The old PNGs can stay in the repository. The updated code only needs the two new transparent images plus the original header icon. You can update the README and Indonesian guide later if you want.
+6. Return to the repository's **Code** tab. Make sure `index.html` is at the top level, and check that both `*-clean.png` images exist inside `assets`.
 7. **Settings → Pages** should still use `main` and `/ (root)` from your earlier setup. Do not change this if it already worked.
 8. Wait for GitHub Pages to update, and refresh your original site URL. Use **Ctrl + F5** if you see the previous version.
 
-**Avoid the most common mistake:** never place the full extracted outer folder inside the repository. The correct path is `assets/duo-cheering.png`, not `ai-ethics-challenge/assets/duo-cheering.png`.
+**Avoid the most common mistake:** never place the full extracted outer folder inside the repository. The correct path is `assets/duo-cheering-clean.png`, not `ai-ethics-challenge/assets/duo-cheering-clean.png`.
 
 There is also a dedicated guide in Bahasa Indonesia in `PANDUAN_UPDATE_GITHUB.md`.
 

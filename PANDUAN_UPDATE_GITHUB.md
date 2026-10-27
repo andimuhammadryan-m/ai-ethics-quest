@@ -1,113 +1,80 @@
-# Panduan Pemula — Update AI Ethics Quest dengan Animasi Duo
+# Panduan Update AI Ethics Quest versi 3
 
-Panduan ini dibuat untuk kamu yang **sudah mengunggah versi pertama** AI Ethics Quest ke GitHub. Kamu tidak perlu membuat repository atau link website yang baru.
+Panduan ini untuk kamu yang **sudah punya website AI Ethics Quest di GitHub Pages**. Kamu tidak perlu membuat repository baru. Link website juga tetap sama.
 
-## A. Apa yang berubah?
+## 1. Download dan ekstrak file
 
-Ada **empat file lama yang diganti**:
+1. Download `ai-ethics-quest-v3-clean-ui.zip` dari ChatGPT.
+2. Klik kanan ZIP di laptop Windows, pilih **Extract All**, lalu **Extract**.
+3. Buka folder hasil ekstraksi. Kamu akan melihat `index.html`, `styles.css`, `app.js`, dan folder `assets`.
+4. **Jangan upload ZIP mentah** ke GitHub. Yang diupload adalah file di dalamnya.
 
-1. `index.html` — menampilkan ikon Duo di header, memasang filter ilustrasi, dan mengganti dekorasi sidebar.
-2. `styles.css` — menambah animasi Duo, ukuran karakter, tampilan mobile, dan kartu respons.
-3. `app.js` — menampilkan karakter pada halaman awal, soal, feedback, serta hasil akhir.
-4. `README.md` — dokumentasi dan petunjuk yang diperbarui.
+## 2. Upload dua gambar transparan ke folder `assets`
 
-Ada **satu folder baru yang perlu ditambahkan**:
+Langkah ini tidak perlu upload folder sekaligus.
 
-`assets/` berisi gambar berikut:
+1. Login di [GitHub](https://github.com).
+2. Buka repository yang berisi website kamu. Contohnya `ai-ethics-quest`.
+3. Klik folder **assets** yang sudah ada di repository.
+4. Klik **Add file → Upload files**.
+5. Di File Explorer, buka folder hasil ekstrak ZIP, lalu masuk ke folder **assets**.
+6. Pilih **dua file ini saja** dengan menahan tombol `Ctrl` saat mengklik nama file:
+   - `duo-welcome-clean.png`
+   - `duo-cheering-clean.png`
+7. Klik **Open**, tunggu kedua file muncul di halaman GitHub.
+8. Klik **Commit changes** untuk menyimpan.
 
-- `duo-welcome.png` — karakter awal/penyambut.
-- `duo-cheering.png` — karakter bersorak untuk jawaban bagus dan hasil tinggi.
-- `duo-closeup.png` — ikon dan ekspresi saat berpikir/mengulang.
-- `duolingo-green-logo.png` — referensi brand kecil pada halaman awal.
-- `duolingo-white-logo.png` — pilihan logo alternatif.
-- `duolingo-cheering-logo.png` — pilihan komposisi karakter dan logo alternatif.
+**Cek:** GitHub harus menampilkan `assets/duo-welcome-clean.png` dan `assets/duo-cheering-clean.png`. File PNG lama **tidak perlu dihapus**.
 
-File `PANDUAN_UPDATE_GITHUB.md` ini juga baru, tetapi sifatnya dokumentasi; tidak memengaruhi website.
+## 3. Ganti kode website
 
-## B. Langkah-langkah mengupdate repository yang SUDAH ada
+Ada **tiga file wajib** yang diperbarui: `index.html`, `styles.css`, dan `app.js`.
 
-**1. Download ZIP versi 2** dari ChatGPT, lalu ekstrak.
+Cara paling mudah jika tidak bisa upload folder:
 
-- Di Windows: klik kanan file ZIP → **Extract All** → **Extract**.
-- Buka folder hasil ekstraksi.
-- Pastikan kamu melihat `index.html`, `styles.css`, `app.js`, `README.md`, `PANDUAN_UPDATE_GITHUB.md`, dan folder `assets`.
-- Jangan mengupload file `.zip` mentah ke GitHub.
+1. Kembali ke halaman awal repository (**Code**).
+2. Klik **Add file → Upload files**.
+3. Dari folder hasil ekstrak di laptop, pilih tiga file berikut sekaligus:
+   - `index.html`
+   - `styles.css`
+   - `app.js`
+4. Tarik tiga file tersebut ke kotak upload GitHub atau gunakan **choose your files**.
+5. Periksa nama file dan klik **Commit changes**.
 
-**2. Buka GitHub:** masuk ke <https://github.com> dan login.
+Jika GitHub tidak mau mengganti file lama melalui Upload files, lakukan satu per satu:
 
-**3. Masuk ke repository lama**, misalnya `ai-ethics-quest`.
+1. Klik `index.html` di GitHub, kemudian klik ikon **pensil** (Edit this file).
+2. Di laptop, buka `index.html` baru dengan Notepad. Tekan `Ctrl + A` lalu `Ctrl + C` untuk menyalin seluruh kode.
+3. Di editor GitHub, tekan `Ctrl + A`, kemudian `Ctrl + V` untuk mengganti seluruh kode lama.
+4. Klik **Commit changes**.
+5. Lakukan hal yang sama untuk `styles.css` dan `app.js`.
 
-- Kamu harus berada pada halaman **Code** yang menampilkan `index.html`.
-- Jangan masuk ke folder lain. Pastikan kamu sedang melihat bagian paling atas atau **root** repository.
+**Penting:** nama file harus sama persis. `index.html` harus berada di halaman utama repository, bukan di dalam `assets`.
 
-**4. Klik `Add file` → `Upload files`.**
+## 4. Tunggu GitHub Pages memperbarui website
 
-**5. Buka folder hasil ekstraksi di Windows File Explorer.**
+1. Buka tab **Actions** di repository untuk melihat proses deployment jika tersedia.
+2. Setelah deployment selesai, buka lagi link website lama kamu.
+3. Tekan `Ctrl + F5` di Chrome atau Edge supaya browser mengambil versi terbaru.
+4. Jika masih terlihat versi lama, coba **Incognito**.
 
-- Pilih kelima file (`index.html`, `styles.css`, `app.js`, `README.md`, `PANDUAN_UPDATE_GITHUB.md`) dan folder `assets`.
-- Tarik semuanya ke area upload GitHub di browser. Chrome atau Edge mendukung drag-and-drop folder pada halaman upload GitHub.
-- Tunggu sampai semua file muncul di daftar upload.
-- GitHub akan memperbarui empat file lama yang namanya sama dan menambahkan berkas baru.
+Sekarang Duo seharusnya tampak menyatu dengan latar hijau tanpa kotak putih. Di feedback, Duo tampil kecil di samping judul jawaban tanpa sudut hitam.
 
-**6. Scroll ke bawah halaman GitHub.**
+## 5. Coba seluruh game
 
-- Pada bagian pesan perubahan, tulis: `Add animated Duo mascot and new visual assets`.
-- Klik **Commit changes**. Jika antarmuka menampilkan **Propose changes**, ikuti alur konfirmasi yang ditampilkan GitHub.
+- Halaman awal: klik **Let's play**.
+- Soal: pilih salah satu jawaban, lalu lihat penjelasan dan XP.
+- Pilih **Continue** untuk melanjutkan cerita.
+- Selesaikan tiga topik sampai halaman skor.
+- Coba juga opsi **Campus** dan **Workplace**, lalu cek tampilan di HP.
 
-**7. Cek hasil upload.**
+## Kalau gambar belum tampil
 
-Kembali ke tab **Code**. Struktur yang benar:
+- Pastikan dua file baru ada di folder `assets` GitHub.
+- Periksa ejaan nama file, termasuk `-clean.png`.
+- Pastikan `app.js` dan `index.html` sudah diperbarui. Jika kode lama masih aktif, browser akan mengambil PNG lama.
+- Periksa lagi website setelah deployment selesai dan tekan `Ctrl + F5`.
 
-```text
-ai-ethics-quest/                  <-- ROOT REPOSITORY
-├── index.html
-├── styles.css
-├── app.js
-├── README.md
-├── PANDUAN_UPDATE_GITHUB.md
-└── assets/
-    ├── duo-welcome.png
-    ├── duo-cheering.png
-    ├── duo-closeup.png
-    ├── duolingo-green-logo.png
-    ├── duolingo-white-logo.png
-    └── duolingo-cheering-logo.png
-```
+## Catatan
 
-PENTING: Jangan sampai menjadi `ai-ethics-quest/ai-ethics-challenge/index.html`. Jika ada folder tambahan `ai-ethics-challenge` di tengah, GitHub Pages mungkin menampilkan error 404 atau website versi lama.
-
-**8. Buka kembali link website yang sama**, misalnya:
-
-`https://USERNAME.github.io/ai-ethics-quest/`
-
-Ganti `USERNAME` dengan username GitHub kamu. Link tidak berubah meskipun file diupdate.
-
-- GitHub Pages biasanya memperbarui website setelah commit dan proses deploy selesai.
-- Jika masih melihat desain lama, tunggu sampai proses deploy selesai lalu tekan **Ctrl + F5** pada halaman website.
-- Coba buka halaman dalam jendela Incognito untuk memastikan file baru sudah tampil.
-
-## C. Jika ini justru upload PERTAMA kamu
-
-1. Buat akun di <https://github.com>.
-2. Klik **+** → **New repository**.
-3. Beri nama `ai-ethics-quest`, pilih **Public**, lalu klik **Create repository**.
-4. Upload seluruh isi ZIP **yang sudah diekstrak**: kelima file dan folder `assets`, langsung ke root repository.
-5. Klik **Commit changes**.
-6. Klik **Settings** → **Pages**.
-7. Atur **Source: Deploy from a branch**, **Branch: main**, **Folder: / (root)**, lalu **Save**.
-8. Tunggu sampai halaman **Settings → Pages** memberikan tautan website.
-
-## D. Cara menguji game
-
-1. Pastikan logo wajah Duo terlihat di header dan karakter menyapa di halaman awal.
-2. Tekan **Start your quest**.
-3. Jawab satu soal dengan pilihan bertanggung jawab → lihat animasi Duo bersorak dan XP.
-4. Ulangi game dan coba pilihan berisiko → lihat ekspresi dan feedback yang berbeda.
-5. Selesaikan semua level sampai halaman hasil akhir.
-6. Buka lewat smartphone dan uji semua tombol.
-
-**Jika gambar tidak muncul:** cek tab `assets` di GitHub. Nama file harus sama persis, termasuk huruf kecil, tanda hubung, dan ekstensi `.png`. Link gambar contoh: `https://USERNAME.github.io/ai-ethics-quest/assets/duo-welcome.png`.
-
-## E. Catatan penggunaan logo
-
-Ini adalah **prototype independen untuk case competition**, bukan produk resmi, kerja sama, atau dukungan dari Duolingo. Aset karakter/logo adalah milik pemegang merek. Gunakan pemberitahuan tidak resmi yang sudah disertakan di website, dan periksa [pedoman brand Duolingo](https://design.duolingo.com/identity/logos) sebelum membagikan atau menggunakan asetnya secara publik.
+Ini prototype mahasiswa untuk case competition dan bukan produk resmi Duolingo. Materi game juga bukan sertifikasi kompetensi AI.
